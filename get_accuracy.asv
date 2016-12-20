@@ -1,1 +1,0 @@
-accuracy=get_accuracy(y_pred_train,y_train)
