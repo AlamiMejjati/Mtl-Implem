@@ -23,3 +23,5 @@ The results for the feature extraction can be seen in the folder, feature extrac
 Each picture shows the P (left) and Q (right) matrix learned. 
 We can see that the sparse matrix captures details of the face. The low rank matrix on the other hand captures 
 the general shape of the face. 
+
+![alt tag](https://github.com/AlamiMejjati/Mtl-Implem/blob/master/featureExtraction/result1.png)
