@@ -17,3 +17,8 @@ To avoid spending a day on training,'max_iter' is restrained to 1000.
 
 The results are quite similar to the paper. However the parameters were not crossvalidated like in the paper,
 An heuristic choice of the parameters has been made.
+
+The results for the feature extraction can be seen in the folder, feature extraction. 
+Each picture shows the P (left) and Q (right) matrix learned. 
+We can see that the sparse matrix captures details of the face. The low rank matrix on the other hand captures 
+the general shape of the face. 
