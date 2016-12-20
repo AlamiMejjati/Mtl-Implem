@@ -1,6 +1,7 @@
 # Mtl-Implem
 
 This is a matlab implementation of the paper bellow:
+Learning Incoherent Sparse and Low-Rank Patterns from Multiple Tasks
 http://pages.cs.wisc.edu/~ji-liu/paper/Jianhui-Ji-TKDD.pdf
 
 The script to run is called main. All the dataset, but Ar face dataset are available 
