@@ -15,5 +15,5 @@ Im the main script, the variable dataname allows one to choose the dataset to us
 If 'face' is choosen, one should know that since we treat images, the algorithm is very time consuming.
 To avoid spending a day on training,'max_iter' is restrained to 1000.
 
-The results are quite similar to the paper. However i did not crossvalidated the parameters, i just did 
-an Heuristic choice.
+The results are quite similar to the paper. However the parameters were not crossvalidated like in the paper,
+An heuristic choice of the parameters has been made.
