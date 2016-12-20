@@ -1,0 +1,45 @@
+function [new_T,diff_in_S]=optimise_T(S,diff_in_S,L0,lambda,rnk_cns)
+
+    T_P=calculate_TP(S,diff_in_S,lambda,L0);
+    
+    T_Q=calculate_TQ(diff_in_S,rnk_cns);  
+    new_T{1}=T_P;
+    new_T{2}=T_Q;
+end
+
+function T_Q=calculate_TQ(diff_in_S,rnk_cns)
+    [U,SigmaS,V] = svd(diff_in_S,'econ');
+    T_Q=optimize_Tq(U,V,SigmaS,rnk_cns);
+end
+
+
+function T_q=optimize_Tq(U,V,SigmaS,rnk_cns)
+
+    H= 2*diag(ones([1,length(SigmaS)]));
+    f= -2*diag(SigmaS);
+    A=ones(1,length(SigmaS));
+    to=rnk_cns;
+    lb = zeros(length(SigmaS),1);
+    options = optimoptions('quadprog',...
+        'Algorithm','interior-point-convex','Display','off');
+
+    [sol,fval,exitflag,output,lagrange] = quadprog(H,f,A,to,[],[],lb,[],[],options);
+    sol_d=diag(sol);
+    T_q=U*sol_d*V';
+end
+
+function T_P=calculate_TP(S,diff_in_S,lambda,L0)
+    cst=lambda/L0;
+    Tp1 = Sp - 0.5 * gamma / beta; 
+Tp1( Tp1 <= 0.5 * gamma / beta ) = 0;
+
+Tp2 = Sp + 0.5 * gamma / beta;
+Tp2(Tp2 >= - 0.5 * gamma / beta) = 0;
+
+Tp = Tp1 + Tp2;
+end
+
+
+
+
+    
