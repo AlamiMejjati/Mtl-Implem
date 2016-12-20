@@ -2,20 +2,29 @@ clear all
 close all
 clc
 
+%%implem of Learning Incoherent Sparse and Low-Rank Patterns from Multiple Tasks
 
-dataname='face';
+datasets_poss={'face','school','scene'};
+dataname='scene';
 
+if isempty(strmatch(dataname,datasets_poss))
+    msg='Wrong dataset choosen, please choose from face school scene';
+    error(msg);
+end
+    
 if strcmp(dataname,'school')
     index=1;
     [x_train,x_test,y_train,y_test]=prepare_data(index);
+    max_iter=10000;
 elseif strcmp(dataname,'face')
     %%else data face 
     [x_train,x_test,y_train,y_test]=prepare_data_ar_face();
+    max_iter=1000;
 elseif strcmp(dataname,'scene')
     [x_train,x_test,y_train,y_test]=prepare_data_scene();
+    max_iter=10000;
 end
 
-max_iter=1000;
 lambda=11;
 
 [T,errors]=projectedGradientMethod(x_train,y_train,max_iter,lambda);
@@ -69,9 +78,9 @@ end
 if strcmp(dataname,'face')
     subplot(1,2,1)
     colormap(flipud(gray));
-    imagesc(reshape(T{1}(:,1),82,60));
+    imagesc(reshape(T{1}(:,5),82,60));
     subplot(1,2,2)
     colormap(flipud(gray));
-    imagesc(reshape(T{2}(:,1),82,60));
+    imagesc(reshape(T{2}(:,5),82,60));
 end
 
