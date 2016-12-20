@@ -15,7 +15,7 @@ function [T,errors]=projectedGradientMethod(x_train,y_train,max_iter,lambda)
     errors(1)=calculate_F(x_train,y_train,lambda,T0);
     for i=1:max_iter
         if mod(i,500)==0
-            display([int2str(i),'/',int2str(maxiter)])
+            display([int2str(i),'/',int2str(max_iter)])
         end
         alpha_i=(tmines1-1)/t0;
         S{1}=(1+alpha_i)*T1{1}-alpha_i*T0{1};
