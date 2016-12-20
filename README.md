@@ -29,6 +29,6 @@ Example bellow:
 
 
 For the classification results of the scene dataset, a screendhot is furnished bellow, however those result can be 
-reproduced by runing main with scene dataset. 
+reproduced by runing main with scene dataset. We can see that those results are quite similar to the ones displayed in the paper.
 
 ![alt tag](https://github.com/AlamiMejjati/Mtl-Implem/blob/master/featureExtraction/sceneResult.PNG)
